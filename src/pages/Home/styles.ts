@@ -21,6 +21,13 @@ export const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:last-child td, &:last-child th': {
     border: 0,
   },
+
+  //hover
+  '&:hover': {
+    backgroundColor: '#E7E7E7',
+  },
+
+  cursor: 'pointer',
 }));
 
 export const BoxContainer = styled(Container)`

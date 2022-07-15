@@ -1,17 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
+import { TextField } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Dropdown from '@app/components/Dropdown';
+import { GENRES_ITEMS } from '@app/constants';
 import useFuzzySearchMovies from '@app/hooks/useFuzzySearchMovies';
-import { getMovies } from '@app/services/MoviesService';
-import createListItemData from '@app/utils/createListItemData';
+import filterByGenre from '@app/utils/filterByGenre';
 import { BoxContainer, StyledTableCell, StyledTableRow } from './styles';
 
 const Home: React.FC = () => {
-  const search = useFuzzySearchMovies('sing', 10);
+  const [titleFilter, setTitleFilter] = useState('a');
+  const [genreFilter, setGenreFilter] = useState(GENRES_ITEMS[0].value);
+  const search = useFuzzySearchMovies(titleFilter, 400);
+  const moviesList = filterByGenre(search.result, genreFilter);
+
+  const onChangeTitleFilter = (value: string) => {
+    if (value) {
+      setTitleFilter(value);
+    }
+  };
+
+  const onChangeSelectHandler = (value: string) => {
+    setGenreFilter(value);
+  };
+
+  const clickRowHandler = (movieTitle: string) => {
+    console.log('Movie Title:', movieTitle);
+  };
 
   return (
     <BoxContainer maxWidth={false}>
@@ -28,16 +47,42 @@ const Home: React.FC = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {search.result.map(row => (
-              <StyledTableRow key={row.title}>
+            <StyledTableRow style={{ background: '#fff' }}>
+              <StyledTableCell>
+                <TextField
+                  type="text"
+                  id="outlined-basic"
+                  label="Filter by title"
+                  variant="standard"
+                  onChange={event => onChangeTitleFilter(event.target.value)}
+                />
+              </StyledTableCell>
+              <StyledTableCell align="right" />
+              <StyledTableCell align="right" />
+              <StyledTableCell align="right" />
+              <StyledTableCell align="right" />
+              <StyledTableCell align="left">
+                <Dropdown
+                  defaultValue="All"
+                  items={GENRES_ITEMS}
+                  onChange={onChangeSelectHandler}
+                />
+              </StyledTableCell>
+            </StyledTableRow>
+          </TableBody>
+          <TableBody>
+            {moviesList.map(movie => (
+              <StyledTableRow
+                key={movie.title}
+                onClick={() => clickRowHandler(movie.title)}>
                 <StyledTableCell component="th" scope="row">
-                  {row.title}
+                  {movie.title}
                 </StyledTableCell>
-                <StyledTableCell align="right">{row.year}</StyledTableCell>
-                <StyledTableCell align="right">{row.runtime}</StyledTableCell>
-                <StyledTableCell align="right">{row.revenue}</StyledTableCell>
-                <StyledTableCell align="right">{row.rating}</StyledTableCell>
-                <StyledTableCell align="right">{row.genre}</StyledTableCell>
+                <StyledTableCell align="left">{movie.year}</StyledTableCell>
+                <StyledTableCell align="left">{movie.runtime}</StyledTableCell>
+                <StyledTableCell align="left">{movie.revenue}</StyledTableCell>
+                <StyledTableCell align="left">{movie.rating}</StyledTableCell>
+                <StyledTableCell align="left">{movie.genre}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

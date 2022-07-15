@@ -13,7 +13,7 @@ const useFuzzySearchMovies = (searchPattern?: string, limit?: number) => {
     getMovies().then(moviesData => {
       const fuseOptions = {
         includeScore: true,
-        keys: ['title'],
+        keys: ['title', 'genre'],
       };
       const currentFuse = new Fuse(moviesData, fuseOptions);
       setFuse(currentFuse);
