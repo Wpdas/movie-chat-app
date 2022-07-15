@@ -1,5 +1,5 @@
 import React from 'react';
-import { Body, CustomButton, Overlay, Paragraph } from './styles';
+import { Body, Overlay } from './styles';
 
 type Props = {
   message: string;
@@ -10,8 +10,10 @@ const SimpleMessage: React.FC<Props> = ({ message, onConfirm }) => {
   return (
     <Overlay>
       <Body>
-        <Paragraph>{message}</Paragraph>
-        <CustomButton onClick={onConfirm}>Okay</CustomButton>
+        <p>{message}</p>
+        <button type="button" onClick={onConfirm}>
+          Okay
+        </button>
       </Body>
     </Overlay>
   );
