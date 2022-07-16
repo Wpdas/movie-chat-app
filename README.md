@@ -8,6 +8,7 @@ This project was built using the following techs/libs: **TypeScript**, **React**
 
 - Node 17.0.0 (.nvmrc)
 - Yarn
+- Nvm
 
 ## :computer: How to run
 
@@ -15,6 +16,12 @@ On the root folder, create a `.env` file and add the following line:
 
 ```
 REACT_APP_FIREBASE_API_KEY=AIzaSyD6KLw-P_DX39ZOHLIcqD5uK7DuUVLr3rs
+```
+
+Use the correct nvm version:
+
+```
+nvm use
 ```
 
 Instal the dependencies:
@@ -26,7 +33,7 @@ yarn install
 To run the application, execute the following command in your terminal:
 
 ```bash
-nvm use ; yarn start
+yarn start
 ```
 
 The application will run at the address: [http://localhost:3000/](http://localhost:3000/)
