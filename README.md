@@ -29,6 +29,8 @@ To run the application, execute the following command in your terminal:
 nvm use ; yarn start
 ```
 
+The application will run at the address: [http://localhost:3000/](http://localhost:3000/)
+
 ## :file_folder: Architecture
 
 The initial part of the project's architecture was focused on the standard formatting of the code. And for that, the **ESLint** and **Prettier** tools are being used.
