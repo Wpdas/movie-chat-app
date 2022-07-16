@@ -3,9 +3,9 @@ import useMessages from '@app/hooks/useMessages';
 import getUserId from '@app/utils/genUserId';
 import randomKey from '@app/utils/randomKey';
 import { BoxContainer } from '../Home/styles';
-import Header from './Header';
-import Message from './Message';
-import MessageInput from './MessageInput';
+import Header from './components/Header';
+import Message from './components/Message';
+import MessageInput from './components/MessageInput';
 import { MessageBox } from './styles';
 
 const userId = getUserId();
