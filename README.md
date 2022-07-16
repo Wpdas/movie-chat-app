@@ -4,6 +4,8 @@ This application allows you to search for movies using a filter by title and gen
 
 This project was built using the following techs/libs: **TypeScript**, **React**, **Emotion**, **React Router Dom**, **MUI Material** and **Firebase**
 
+Maybe you want to watch this short presentation: <a href="https://drive.google.com/file/d/1GaL05lyg56Hgi-UInQTsx5RdFp-EIAP7/view?usp=sharing" target="_blank">**Movie Chat App - Demo (video)**</a>.
+
 ## Pre-requisites
 
 - Node 17.0.0 (.nvmrc)
