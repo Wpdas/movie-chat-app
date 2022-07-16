@@ -44,7 +44,7 @@ The initial part of the project's architecture was focused on the standard forma
 
 This app is also using the `react-app-rewired`, which allows us to make adjustments to the application without having to eject the project.
 
-The Chat is using SWR feature to get real-time messages. The name "SWR" is derived from stale-while-revalidate, an HTTP cache invalidation technique popularized by HTTP RFC 5861. SWR is the strategy of first returning the data from the cache (stale), then sending the fetch request (revalidate ), and finally return with the updated data.
+The Chat is using SWR feature to get real-time messages. The name "SWR" is derived from stale-while-revalidate, an HTTP cache invalidation technique popularized by [HTTP RFC 5861](https://tools.ietf.org/html/rfc5861). SWR is the strategy of first returning the data from the cache (stale), then sending the fetch request (revalidate ), and finally return with the updated data.
 
 ### Folder structure
 
