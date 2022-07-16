@@ -1,4 +1,4 @@
-# :shipit: Movie Chat Application
+# Movie Chat Application
 
 This application allows you to search for movies using a filter by title and genre. You can also click on the movie row to access the chat.
 
