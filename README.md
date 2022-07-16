@@ -86,6 +86,7 @@ pages
 - Add "<username> is typing" functionality in Chat.
 - Improved scroll management for Chat scrolling.
 - Login to get simple user data
+- Fix CORS error in API call.
 - Extra cache layer to store already viewed messages. Use Redux (@rematch library).
 - Create unit and integration tests;
 - Deploy security layer for Firebase API KEY.
