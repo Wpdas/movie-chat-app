@@ -1,3 +1,5 @@
+import minutesToHoursAndMinutes from './minutesToHoursAndMinutes';
+
 type ListItemDataInput = {
   title: string;
   year: string;
@@ -24,14 +26,14 @@ const createListItemData = ({
   rating,
   genre,
 }: ListItemDataInput) => {
-  const currentRuntime = 0; // to 9h 59m format
+  const currentRuntime = minutesToHoursAndMinutes(Number(runtime));
   const formatedRevenue = `$${revenue} M`;
   const formatedGenre = genre.join(', ');
 
   return {
     title,
     year,
-    runtime,
+    runtime: currentRuntime,
     revenue: formatedRevenue,
     rating,
     genre: formatedGenre,
