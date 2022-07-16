@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { TextField } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -13,6 +14,7 @@ import filterByGenre from '@app/utils/filterByGenre';
 import { BoxContainer, StyledTableCell, StyledTableRow } from './styles';
 
 const Home: React.FC = () => {
+  const history = useHistory();
   const [titleFilter, setTitleFilter] = useState('a');
   const [genreFilter, setGenreFilter] = useState(GENRES_ITEMS[0].value);
   const search = useFuzzySearchMovies(titleFilter, 400);
@@ -29,11 +31,11 @@ const Home: React.FC = () => {
   };
 
   const clickRowHandler = (movieTitle: string) => {
-    console.log('Movie Title:', movieTitle);
+    history.push(`/chat/${movieTitle}`);
   };
 
   return (
-    <BoxContainer maxWidth={false}>
+    <BoxContainer maxWidth="lg">
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 350 }} aria-label="customized table">
           <TableHead>
