@@ -12,7 +12,7 @@ const userId = getUserId();
 
 const scrollToBottom = () => {
   const messageBoxElement = document.getElementById('message-box');
-  messageBoxElement?.scrollTo(0, messageBoxElement?.clientHeight || 0);
+  messageBoxElement?.scrollTo(0, messageBoxElement?.scrollHeight || 0);
 };
 
 const Chat: React.FC = () => {
